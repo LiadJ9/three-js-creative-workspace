@@ -34,7 +34,7 @@ TXloader.load('/envs/space.jpg', (texture) => {
   texture.magFilter = THREE.LinearFilter;
   texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
   scene.background = texture;
-  scene.environment = texture; // Enables reflections
+  scene.environment = texture;
 });
 let star;
 let planet1;
@@ -67,14 +67,6 @@ Promise.all([
     }
   });
 });
-
-const pointLight = new THREE.PointLight(0xffffff, 80, 500); // color, intensity, distance
-pointLight.position.set(0, -3, 0); // X, Y, Z — Y is down
-scene.add(pointLight);
-
-const sphereSize = 0.8;
-const pointLightHelper = new THREE.PointLightHelper(pointLight, sphereSize);
-scene.add(pointLightHelper);
 
 camera.position.z = 5;
 
