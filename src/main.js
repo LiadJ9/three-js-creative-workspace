@@ -121,7 +121,7 @@ function animate() {
     jupiter.rotation.y -= 0.02;
   }
   if (donut) {
-    donut.rotation.x += 0.02;
+    donut.rotation.x += 0.018;
     donut.rotation.y += 0.02;
   }
   if (eightBall) {
