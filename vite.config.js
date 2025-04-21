@@ -6,5 +6,5 @@ export default defineConfig({
     port: 3001,
   },
   plugins: [ghPages()],
-  base: '/three-js-creative-workspace/',
+  base: '/three-js-planets/',
 });
