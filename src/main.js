@@ -13,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 const renderer = new THREE.WebGLRenderer();
 const TXloader = new THREE.TextureLoader();
-
+const baseUrl = import.meta.env.BASE_URL;
 // ORBIT CONTROLS ////
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -46,7 +46,7 @@ jupiterPivot.position.set(18, 0, 0);
 scene.add(sunPivot, sunPivot2, jupiterPivot);
 ///////////////////////
 
-TXloader.load('/envs/space.jpg', (texture) => {
+TXloader.load(`${baseUrl}envs/space.jpg`, (texture) => {
   texture.mapping = THREE.EquirectangularReflectionMapping;
   texture.minFilter = THREE.LinearFilter;
   texture.magFilter = THREE.LinearFilter;
@@ -61,26 +61,26 @@ let sun;
 let donut;
 let eightBall;
 Promise.all([
-  loadModel(scene, '/models/CD.glb', {
+  loadModel(scene, `${baseUrl}models/CD.glb`, {
     position: [12, 0.5, 8],
     scale: [0.4, 0.4, 0.4],
   }),
-  loadModel(scene, '/models/Jupiter.glb', {
+  loadModel(scene, `${baseUrl}models/Jupiter.glb`, {
     position: [18, 0, 0],
     scale: [0.02, 0.02, 0.02],
   }),
-  loadModel(scene, '/models/Sun.glb', {
+  loadModel(scene, `${baseUrl}models/Sun.glb`, {
     position: [0, 0, 0],
     scale: [6, 6, 6],
   }),
-  loadModel(scene, '/models/Moon.glb', {
+  loadModel(scene, `${baseUrl}models/Moon.glb`, {
     position: [3.5, 2, 0],
   }),
-  loadModel(scene, '/models/Donut.glb', {
+  loadModel(scene, `${baseUrl}models/Donut.glb`, {
     position: [0, 0, 8],
     scale: [0.7, 0.7, 0.7],
   }),
-  loadModel(scene, '/models/Eight_ball.glb', {
+  loadModel(scene, `${baseUrl}models/Eight_ball.glb`, {
     position: [20, 0, 20],
     scale: [2, 2, 2],
   }),
